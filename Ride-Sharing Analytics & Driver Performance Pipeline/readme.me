@@ -1,0 +1,159 @@
+Here is the updated `README.md` reflecting your single-notebook project structure. I have consolidated the execution steps and updated the folder tree to show just one main project notebook.
+
+# 🚗 Ride-Sharing Analytics & Driver Performance
+
+## End-to-End Data Engineering Pipeline using PySpark & Databricks Delta Lake
+
+---
+
+# 📖 Project Overview
+
+The **Ride-Sharing Analytics & Driver Performance** project is a robust data engineering pipeline designed to process large volumes of operational data from ride-sharing platforms. Built using **PySpark** and **Databricks Delta Lake**, the project strictly follows the **Medallion Architecture (Bronze → Silver → Gold)**.
+
+The entire pipeline is streamlined into a single, comprehensive Databricks notebook. It ingests raw driver and trip data, performs data cleaning and broadcast joins to enrich the dataset, and ultimately generates high-value, business-ready analytical insights.
+
+This project demonstrates core Data Engineering concepts including distributed data processing, handling null and invalid records, PySpark optimizations (Broadcast Joins), advanced analytics using Window Functions, and Delta table management.
+
+---
+
+# 🎯 Project Objectives
+
+* Build a structured data engineering pipeline using PySpark and Databricks.
+* Implement the Medallion Architecture (Bronze, Silver, Gold) in a unified workflow.
+* Track ride and driver activity across the platform.
+* Analyze cancellations and trip delays.
+* Identify high-demand pickup locations for fleet optimization.
+* Evaluate driver performance and rank them by revenue generation.
+* Validate data consistency across all processing layers.
+* Apply Spark optimization techniques to ensure scalable data processing.
+
+---
+
+# 🏗️ Project Architecture
+
+
+*(Placeholder for your architecture diagram)*
+
+---
+
+# ▶️ Notebook Execution
+
+The entire pipeline is consolidated into a single Databricks notebook for streamlined execution and testing.
+
+| Notebook | Description |
+| --- | --- |
+| `Ride_Sharing_Driver_Performance_Analysis.ipynb` | Executes the complete end-to-end pipeline: ingesting raw data (Bronze), applying transformations and optimized joins (Silver), generating business KPIs (Gold), and validating data consistency. |
+
+---
+
+# 🥉 Bronze Layer
+
+The Bronze layer ingests raw CSV datasets (drivers, trips, and trip logs) as they are provided, without any transformations, maintaining a strict historical source of truth.
+
+### Features
+
+* Raw Data Ingestion
+* PySpark DataFrames Integration
+* Databricks Catalog Native Reading
+* Storage as Delta Tables
+
+---
+
+# 🥈 Silver Layer
+
+The Silver layer transforms the raw data into a clean, structured, and reliable dataset ready for analytical processing.
+
+### Features
+
+* **Optimized Joins:** Utilizes Broadcast Joins for smaller dimensional tables (drivers).
+* **Data Cleansing:** Handles null values and fills missing quantitative fields (delays, fares).
+* **Data Validation:** Filters out invalid data, such as negative distances or missing timestamps for completed trips.
+* **Derived Metrics:** Calculates `trip_duration_mins` and `is_completed` flags.
+* **Delta/Parquet Storage:** Saves enriched data efficiently for downstream consumption.
+
+---
+
+# 🥇 Gold Layer
+
+The Gold layer generates aggregated, business-ready analytical datasets tailored for reporting and dashboarding.
+
+### Generated KPIs
+
+* **Driver Performance Ranking:** Ranks drivers by total revenue using Spark Window functions.
+* **Cancellation Analytics:** Calculates precise cancellation rates per driver.
+* **High-Demand Locations:** Identifies pickup hotspots based on request volume and revenue.
+* **Revenue Insights:** Summarizes total fares collected and trip success rates.
+
+---
+
+# ⚙️ Technologies Used
+
+| Technology | Purpose |
+| --- | --- |
+| Databricks | Unified Data Analytics Platform |
+| PySpark | Distributed Data Processing |
+| Delta Lake / Parquet | Optimized Data Storage |
+| Python | Pipeline Development |
+| Git & GitHub | Version Control |
+
+---
+
+# 📂 Project Structure
+
+```text
+Ride_Sharing_Analytics/
+│
+├── notebooks/
+│   └── Ride_Sharing_Driver_Performance_Analysis.ipynb
+│
+├── architecture/
+│   └── architecture.png
+│
+├── data/
+│   ├── drivers.csv
+│   ├── trips.csv
+│   └── trip_logs.csv
+│
+├── screenshots/
+│
+├── README.md
+
+```
+
+---
+
+# ✨ Key Features
+
+* ✅ End-to-End Medallion Architecture
+* ✅ Native PySpark Data Processing
+* ✅ Broadcast Join Optimization
+* ✅ Advanced Window Functions
+* ✅ Delta Table Management
+* ✅ Automated Data Quality Validation
+* ✅ Time-series and Timestamp Manipulations
+* ✅ Unified Single-Notebook Workflow
+
+---
+
+# 🚀 Future Improvements
+
+Potential enhancements include:
+
+* Orchestrating the pipeline using Databricks Workflows or Apache Airflow.
+* Implementing Databricks Auto Loader for streaming real-time trip logs.
+* Connecting the Gold layer to Power BI or Tableau for a live driver performance dashboard.
+* Setting up Unity Catalog for robust data governance and access control.
+
+---
+
+# 👨‍💻 Author
+
+**Devansh Saini**
+
+B.Tech Computer Science Engineering
+
+Data Engineering Enthusiast
+
+---
+
+## ⭐ If you found this project useful, consider giving it a star on GitHub!
